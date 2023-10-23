@@ -1,0 +1,22 @@
+{
+  "name": "to_do_list",
+  "version": "1.0.0",
+  "description": "___\r Nesse projeto será usado JavaScript então para executar a aplicação será necessário um ambiente de execução JavaScript, como exemplo:\r - [NodeJs](https://nodejs.org/en/download)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JessanyKaline/to_do_list_ada_tech.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JessanyKaline/to_do_list_ada_tech/issues"
+  },
+  "homepage": "https://github.com/JessanyKaline/to_do_list_ada_tech#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
