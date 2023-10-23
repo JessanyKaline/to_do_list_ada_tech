@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "to_do_list",
   "version": "1.0.0",
   "description": "___\r Nesse projeto será usado JavaScript então para executar a aplicação será necessário um ambiente de execução JavaScript, como exemplo:\r - [NodeJs](https://nodejs.org/en/download)",
