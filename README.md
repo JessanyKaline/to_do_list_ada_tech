@@ -33,9 +33,10 @@ Isso é suficiente para instalar a biblioteca readline-sync no diretório *node_
 - [ ] Definir regras de atualização das tarefas, como campos editáveis, campos imutáveis com valor semântico, etc;
 - [ ] Criar uma estrutura (coleção) com várias tarefas base para testes;
 - [ ] Criação de uma função principal que iniciará a interação via **CLI** (Command Line Interface) com o usuário;
-- [ ] Aplicar um menu na função principal com as operações principais requeridas no projeto;
+- [x] Aplicar um menu na função principal com as operações principais requeridas no projeto;
 - [ ] Criar funções adjacentes que segregam responsabilidades dentro do código, como:
-    - [ ] Função `novaTarefa()` - Função destinada a interagir com o usuário via *CLI* para obter as informações pertinentes à uma nova tarefa, ela deverá retornar uma instância de uma tarefa;
+    - [x] Função `novaTarefa(tarefas)` - Função destinada a interagir com o usuário via *CLI* para obter as informações pertinentes à uma nova tarefa, ela deverá retornar uma instância de uma tarefa com id já exclusivo;
+    - [x] Função `addTask(tarefas)` - Função que recebe como argumento uma lista de tarefas a qual servirá para geração de id único para nova tarefa a ser criada pela função `novaTarefa`;
     - [ ] Função `atualizarTarefa(tarefa)` - Função que recebe como argumento uma tarefa a qual deverá ser editada de acordo com a interação com o usuário via *CLI*, essa função pode ou não retornar algo;
     - [ ] Função `editarTarefa(tarefas)` - Essa função recebe como argumento uma coleção de tarefas (`tarefas`) das quais, por meio de interação com o usuário via *CLI*, será atualizada uma das tarefas constantes na coleção;
     - [ ] Função `exibirTarefa(tarefa)` - Função destinada a exibir organizadamente as informações da tarefa recebida como argumento. Essa função não possui retorno;
