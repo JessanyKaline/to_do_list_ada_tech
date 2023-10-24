@@ -79,12 +79,23 @@ function idTaskExist(listaDeTarefas, stringId) {
     return false;
 }
 
-function addTask(listaDeTarefas) {
-    let id, description, title;
+function novaId(listaDeTarefas) {
+    let id;
     do { id = ++serial; } while (idTaskExist(listaDeTarefas, id));
+    return id;
+}
+
+function addTask(listaDeTarefas) {
+    const newTask = novaTarefa(listaDeTarefas);
+    listaDeTarefas.push(newTask);
+    console.log("Tarefa adicionada com sucesso.");
+}
+
+function novaTarefa(listaDeTarefas) {
+    let id = novaId(listaDeTarefas), description, title;
     console.log("Informe o título da tarefa e dê Enter");
     title = readline.question(": ");
     console.log("Agora informe a descrição completa da tarefa");
     description = readline.question(": ");
-    listaDeTarefas.push({ "id": id, "titulo": title, "description": description });
+    return {"id": id, "titulo": title, "description": description }
 }
