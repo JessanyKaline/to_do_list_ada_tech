@@ -1,8 +1,5 @@
-/* O arquivo que lida com a interface de linha de comando.
-Ele contém a lógica para exibir menus, obter entradas
-do usuário e chamar as funções apropriadas em toDo.js */
-
 import readline from 'readline-sync'
+
 readline.setDefaultOptions({ encoding:'utf-8' });
 let serial = 0;
 
@@ -21,7 +18,7 @@ export const startApp = () => {
     console.log("Aplicação finalizada!");
 }
 
-function listaDeTarefasBase() {
+export function listaDeTarefasBase() {
     return [
         { "id": 1, "titulo": "Otimizar algoritmo", "description": "Verificar algoritmo de busca e deixar ele mais rápido" },
         { "id": 5, "titulo": "Preencher formulário", "description": "Formulário de vendas precisa ser preenchido" },
@@ -52,7 +49,7 @@ function menu(listaDeTarefas) {
                 addTask(listaDeTarefas);
                 break;
             case '2':
-                //updateTask();
+                updateTask(listaDeTarefas);
                 break;
             case '3':
                 //deleteTask();
@@ -98,4 +95,35 @@ function novaTarefa(listaDeTarefas) {
     console.log("Agora informe a descrição completa da tarefa");
     description = readline.question(": ");
     return {"id": id, "titulo": title, "description": description }
+}
+
+
+function getTasks(listaDeTarefas){
+    console.log(listaDeTarefas)
+}
+
+
+function updateTask(listaDeTarefas) {
+    console.log("Atualizar Tarefa");
+    const taskId = readline.question("Informe o ID da tarefa que deseja atualizar: ");
+    
+    const taskToUpdate = listaDeTarefas.find(task => task.id == taskId);
+    
+    if (taskToUpdate) {
+        console.log("Tarefa encontrada. Forneça as novas informações:");
+        
+        const newTitle = readline.question("Novo título (deixe em branco para manter o mesmo): ");
+        const newDescription = readline.question("Nova descrição (deixe em branco para manter a mesma): ");
+        
+        if (newTitle.trim() !== "") {
+            taskToUpdate.titulo = newTitle;
+        }
+        if (newDescription.trim() !== "") {
+            taskToUpdate.description = newDescription;
+        }
+        
+        console.log("Tarefa atualizada com sucesso.");
+    } else {
+        console.log("Tarefa não encontrada com o ID fornecido.");
+    }
 }
