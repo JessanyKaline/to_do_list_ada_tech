@@ -78,3 +78,13 @@ function idTaskExist(listaDeTarefas, stringId) {
     }
     return false;
 }
+
+function addTask(listaDeTarefas) {
+    let id, description, title;
+    do { id = ++serial; } while (idTaskExist(listaDeTarefas, id));
+    console.log("Informe o título da tarefa e dê Enter");
+    title = readline.question(": ");
+    console.log("Agora informe a descrição completa da tarefa");
+    description = readline.question(": ");
+    listaDeTarefas.push({ "id": id, "titulo": title, "description": description });
+}
