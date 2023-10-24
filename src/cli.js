@@ -71,3 +71,10 @@ function menu(listaDeTarefas) {
         }
     }
 }
+
+function idTaskExist(listaDeTarefas, stringId) {
+    for (const task of listaDeTarefas) {
+        if (task.hasOwnProperty('id') && task["id"] == stringId) return true;
+    }
+    return false;
+}
