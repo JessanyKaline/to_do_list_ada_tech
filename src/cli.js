@@ -28,3 +28,46 @@ function listaDeTarefasBase() {
         { "id": 3, "titulo": "Marcar Daily", "description": "Buscar melhor hora das reuniões diárias" }
     ];
 }
+
+function textoDoMenu() {
+    let margem = 7, result;
+    result = "-".repeat(margem) + " MENU PRINCIPAL " + "-".repeat(margem) + "\n";
+    result += ",____________________________,\n";
+    result += "|[1] - Adicionar tarefa      |\n";
+    result += "|[2] - Atualizar tarefa      |\n";
+    result += "|[3] - Deletar tarefa        |\n";
+    result += "|[4] - Obter todas as tarefas|\n";
+    result += "|[5] - Obter uma tarefa      |\n";
+    result += "|[0] - Sair                  |\n";
+    result += "|----------------------------|";
+    return result;
+}
+
+function menu(listaDeTarefas) {
+    while (true) {
+        console.log("\n" + textoDoMenu());
+        const choice = readline.question('Escolha um numero acima: ');
+        switch (choice) {
+            case '1':
+                addTask(listaDeTarefas);
+                break;
+            case '2':
+                //updateTask();
+                break;
+            case '3':
+                //deleteTask();
+                break;
+            case '4':
+                getTasks(listaDeTarefas);
+                break;
+            case '5':
+                //getOneTask();
+                break;
+            case '0':
+                console.log('Saindo da aplicação.');
+                process.exit(0);
+            default:
+                console.log('Opção inválida. Tente novamente.');
+        }
+    }
+}
