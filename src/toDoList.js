@@ -130,8 +130,10 @@ function updateTask(taskList) {
 
 // Enumerate available tasks for user
 function enumerateTask(taskList) {
-    console.log("Lista de Tarefas:")
-    taskList.map((task) => console.log(`${indexOf(task + 1)} - ${task.title} \n`))
+    console.log("Lista de Tarefas: \n")
+    for (let i = 0; i < taskList.length; i++) {
+        console.log(`${(i + 1)} - ${taskList[i].title}`)
+    }
 }
 
-enumerateTask(baseTaskList)
+enumerateTask(baseTaskList())
