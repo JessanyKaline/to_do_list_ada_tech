@@ -18,10 +18,10 @@ Isso é suficiente para instalar a biblioteca readline-sync no diretório *node_
 
 ### Sobre o projeto:
 #### Os requisitos do projeto foram originalmente definidos como:
-- [ ] Adicionar uma tarefa;
+- [x] Adicionar uma tarefa;
 - [ ] Editar uma tarefa salva;
-- [ ] Remover uma tarefa salva;
-- [ ] Listar todas as tarefas salvas;
+- [x] Remover uma tarefa salva;
+- [x] Listar todas as tarefas salvas;
 - [ ] Obter uma tarefa, através de um parâmetro (id);
 
 - Observação:
