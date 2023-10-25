@@ -3,7 +3,7 @@
 
 ### Requisitos para executar a aplicação
 ___
-Nesse projeto será usado JavaScript então para executar a aplicação será necessário um ambiente de execução JavaScript, como exemplo:
+Nesse projeto será usado JavaScript, então para executar a aplicação, será necessário um ambiente de execução JavaScript, como exemplo:
 - [NodeJs](https://nodejs.org/en/download)
 
 Instale o `Node.js` e assegure-se que a instalação foi bem sucedida no seu sistema, utilizando o seguinte comando em seu terminal:
@@ -42,6 +42,6 @@ Isso é suficiente para instalar a biblioteca readline-sync no diretório *node_
     - [ ] Função `exibirTarefa(tarefa)` - Função destinada a exibir organizadamente as informações da tarefa recebida como argumento. Essa função não possui retorno;
     - [ ] Função `buscarTarefa(tarefas, tarefaId)` - Função destinada a encontrar uma tarefa dentro do agrupamento de tarefas (`tarefas`) com base no atributo fornecido (`tarefaId`), retornando-a se for encontrada, caso contrário, retornar `undefined`;
     - [ ] Função `listarTarefas(tarefas)` - Função destinada a exibir as informações de todas as tarefas que foram recebidas como argumento. A função não possui retorno;
-    - [ ] Função `enumerarTarefas(tarefas)` - Função destinada a exibir informações limitadas de todas as tarefas que foram recebidas como argumento, porém exbindo um número a frente para facilitar a posterior escolha da mesma pelo usuário. A função não possui retorno;
+    - [x] Função `enumerarTarefas(tarefas)` - Função destinada a exibir informações limitadas de todas as tarefas que foram recebidas como argumento, porém exbindo um número a frente para facilitar a posterior escolha da mesma pelo usuário. A função não possui retorno;
     - [ ] Função `obterTarefa(tarefas)` - Função que recebe uma coleção de tarefas (`tarefas`) e interage com o usuário para que ele escolha somente uma delas e assim poder visualizar todo o conteúdo dela. Essa função não precisa de retorno;
     - [ ] Função `removerTarefa(tarefas)` - Função que recebe uma coleção de tarefas (`tarefas`) e interage com o usuário para que ele escolha somente uma delas e assim poder excluir ela. Essa função não precisa de retorno;
