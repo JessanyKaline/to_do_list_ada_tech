@@ -19,7 +19,7 @@ Isso é suficiente para instalar a biblioteca readline-sync no diretório *node_
 ### Sobre o projeto:
 #### Os requisitos do projeto foram originalmente definidos como:
 - [x] Adicionar uma tarefa;
-- [ ] Editar uma tarefa salva;
+- [x] Editar uma tarefa salva;
 - [x] Remover uma tarefa salva;
 - [x] Listar todas as tarefas salvas;
 - [ ] Obter uma tarefa, através de um parâmetro (id);
@@ -28,20 +28,18 @@ Isso é suficiente para instalar a biblioteca readline-sync no diretório *node_
     - Não há persistência das tarefas no banco de dados.
     - Para isso, pode usar um array para armazenar a lista de tarefas cadastradas.
 #### Os requisitos adjacentes que encontramos foram:
-- [ ] Definir o tipo e a estrutura da tarefa;
-- [ ] Definir o tipo de estrutura (coleção) que armazenará as tarefas (poderá haver tarefas duplicadas? Como saber?);
-- [ ] Definir regras de atualização das tarefas, como campos editáveis, campos imutáveis com valor semântico, etc;
-- [ ] Criar uma estrutura (coleção) com várias tarefas base para testes;
-- [ ] Criação de uma função principal que iniciará a interação via **CLI** (Command Line Interface) com o usuário;
+- [x] Definir o tipo e a estrutura da tarefa;
+- [x] Definir o tipo de estrutura;
+- [x] Criar uma estrutura (coleção) com várias tarefas base para testes;
+- [x] Criação de uma função principal que iniciará a interação via **CLI** (Command Line Interface) com o usuário;
 - [x] Aplicar um menu na função principal com as operações principais requeridas no projeto;
 - [ ] Criar funções adjacentes que segregam responsabilidades dentro do código, como:
-    - [x] Função `novaTarefa(tarefas)` - Função destinada a interagir com o usuário via *CLI* para obter as informações pertinentes à uma nova tarefa, ela deverá retornar uma instância de uma tarefa com id já exclusivo;
-    - [x] Função `addTask(tarefas)` - Função que recebe como argumento uma lista de tarefas a qual servirá para geração de id único para nova tarefa a ser criada pela função `novaTarefa`;
-    - [ ] Função `atualizarTarefa(tarefa)` - Função que recebe como argumento uma tarefa a qual deverá ser editada de acordo com a interação com o usuário via *CLI*, essa função pode ou não retornar algo;
-    - [ ] Função `editarTarefa(tarefas)` - Essa função recebe como argumento uma coleção de tarefas (`tarefas`) das quais, por meio de interação com o usuário via *CLI*, será atualizada uma das tarefas constantes na coleção;
-    - [ ] Função `exibirTarefa(tarefa)` - Função destinada a exibir organizadamente as informações da tarefa recebida como argumento. Essa função não possui retorno;
+    - [x] Função `newTask(taskList)` - Função destinada a interagir com o usuário via *CLI* para obter as informações pertinentes à uma nova tarefa, ela deverá retornar uma instância de uma tarefa com id já exclusivo;
+    - [x] Função `addTask(taskList)` - Função que recebe como argumento uma lista de tarefas a qual servirá para geração de id único para nova tarefa a ser criada pela função `newTask`;
+    - [ ] Função `updateTask(taskList)` - Essa função recebe como argumento uma coleção de tarefas (`taskList`) das quais, por meio de interação com o usuário via *CLI*, será atualizada uma das tarefas constantes na coleção;
+    - [ ] Função `getTasks(taskList)` - Função destinada a exibir organizadamente as informações da tarefa recebida como argumento. Essa função não possui retorno;
     - [ ] Função `buscarTarefa(tarefas, tarefaId)` - Função destinada a encontrar uma tarefa dentro do agrupamento de tarefas (`tarefas`) com base no atributo fornecido (`tarefaId`), retornando-a se for encontrada, caso contrário, retornar `undefined`;
-    - [ ] Função `listarTarefas(tarefas)` - Função destinada a exibir as informações de todas as tarefas que foram recebidas como argumento. A função não possui retorno;
-    - [ ] Função `enumerarTarefas(tarefas)` - Função destinada a exibir informações limitadas de todas as tarefas que foram recebidas como argumento, porém exbindo um número a frente para facilitar a posterior escolha da mesma pelo usuário. A função não possui retorno;
-    - [ ] Função `obterTarefa(tarefas)` - Função que recebe uma coleção de tarefas (`tarefas`) e interage com o usuário para que ele escolha somente uma delas e assim poder visualizar todo o conteúdo dela. Essa função não precisa de retorno;
-    - [ ] Função `removerTarefa(tarefas)` - Função que recebe uma coleção de tarefas (`tarefas`) e interage com o usuário para que ele escolha somente uma delas e assim poder excluir ela. Essa função não precisa de retorno;
+    - [ ] Função `getTasks(taskList)` - Função destinada a exibir as informações de todas as tarefas que foram recebidas como argumento. A função não possui retorno;
+    - [ ] Função `enumerateTask(taskList)` - Função destinada a exibir informações limitadas de todas as tarefas que foram recebidas como argumento, porém exbindo um número a frente para facilitar a posterior escolha da mesma pelo usuário. A função não possui retorno;
+    - [ ] Função `getOneTask(taskList)` - Função que recebe uma coleção de tarefas (`taskList`) e interage com o usuário para que ele escolha somente uma delas e assim poder visualizar todo o conteúdo dela. Essa função não precisa de retorno;
+    - [ ] Função `deleteTask(taskList)` - Função que recebe uma coleção de tarefas (`taskList`) e interage com o usuário para que ele escolha somente uma delas e assim poder excluir ela. Essa função não precisa de retorno;
