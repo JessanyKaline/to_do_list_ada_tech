@@ -135,5 +135,3 @@ function enumerateTask(taskList) {
         console.log(`${(i + 1)} - ${taskList[i].title}`)
     }
 }
-
-enumerateTask(baseTaskList())
