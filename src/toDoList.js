@@ -20,9 +20,9 @@ export const startApp = () => {
 
 export function baseTaskList() {
     return [
-        { "id": 1, "titulo": "Otimizar algoritmo", "description": "Verificar algoritmo de busca e deixar ele mais rápido" },
-        { "id": 5, "titulo": "Preencher formulário", "description": "Formulário de vendas precisa ser preenchido" },
-        { "id": 3, "titulo": "Marcar Daily", "description": "Buscar melhor hora das reuniões diárias" }
+        { "id": 1, "title": "Otimizar algoritmo", "description": "Verificar algoritmo de busca e deixar ele mais rápido" },
+        { "id": 5, "title": "Preencher formulário", "description": "Formulário de vendas precisa ser preenchido" },
+        { "id": 3, "title": "Marcar Daily", "description": "Buscar melhor hora das reuniões diárias" }
     ];
 }
 
@@ -130,5 +130,8 @@ function updateTask(taskList) {
 
 // Enumerate available tasks for user
 function enumerateTask(taskList) {
-    taskList.map(task => console.log(`${indexOf(task + 1)} - ${task.title}`))
+    console.log("Lista de Tarefas:")
+    taskList.map((task) => console.log(`${indexOf(task + 1)} - ${task.title} \n`))
 }
+
+enumerateTask(baseTaskList)
