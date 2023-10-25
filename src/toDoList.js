@@ -52,7 +52,7 @@ function menu(taskList) {
                 updateTask(taskList);
                 break;
             case '3':
-                //deleteTask();
+                deleteTask(taskList);
                 break;
             case '4':
                 getTasks(taskList);
@@ -66,6 +66,20 @@ function menu(taskList) {
             default:
                 console.log('Opção inválida. Tente novamente.');
         }
+    }
+}
+function deleteTask(taskList) {
+    console.log("Excluir Tarefa");
+    const taskId = readline.question("Informe o ID da tarefa que deseja excluir: ");
+
+    const taskIndex = taskList.findIndex(task => task.id == taskId);
+
+    if (taskIndex !== -1) {
+        const deletedTask = taskList.splice(taskIndex, 1)[0];
+        console.log(`Tarefa com ID ${taskId} excluída com sucesso:`);
+        console.log(deletedTask);
+    } else {
+        console.log("Tarefa não encontrada com o ID fornecido.");
     }
 }
 
