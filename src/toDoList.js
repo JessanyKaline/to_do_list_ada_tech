@@ -18,7 +18,7 @@ export const startApp = () => {
     console.log("Aplicação finalizada!");
 }
 
-export function baseTaskList() {
+function baseTaskList() {
     return [
         { "id": 1, "title": "Otimizar algoritmo", "description": "Verificar algoritmo de busca e deixar ele mais rápido" },
         { "id": 5, "title": "Preencher formulário", "description": "Formulário de vendas precisa ser preenchido" },
@@ -68,6 +68,7 @@ function menu(taskList) {
         }
     }
 }
+
 function deleteTask(taskList) {
     console.log("Excluir Tarefa");
     const taskId = readline.question("Informe o ID da tarefa que deseja excluir: ");
@@ -83,6 +84,12 @@ function deleteTask(taskList) {
     }
 }
 
+/**
+ * Função que verifica se um Id existe
+ * @param {Array} taskList
+ * @param {string} stringId
+ * @returns {boolean}
+ */
 function idTaskExist(taskList, stringId) {
     for (const task of taskList) {
         if (task.hasOwnProperty('id') && task["id"] == stringId) return true;
@@ -111,11 +118,9 @@ function newTask(taskList) {
     return {"id": id, "titulo": title, "description": description }
 }
 
-
 function getTasks(taskList){
     console.log(taskList)
 }
-
 
 function updateTask(taskList) {
     console.log("Atualizar Tarefa");
@@ -142,7 +147,6 @@ function updateTask(taskList) {
     }
 }
 
-// Enumerate available tasks for user
 function enumerateTask(taskList) {
     console.log("Lista de Tarefas: \n")
     for (let i = 0; i < taskList.length; i++) {
