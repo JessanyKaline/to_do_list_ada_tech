@@ -3,7 +3,7 @@
 
 ### Requisitos para executar a aplicação
 ___
-Nesse projeto será usado JavaScript então para executar a aplicação será necessário um ambiente de execução JavaScript, como exemplo:
+Nesse projeto será usado JavaScript, então para executar a aplicação, será necessário um ambiente de execução JavaScript, como exemplo:
 - [NodeJs](https://nodejs.org/en/download)
 
 Instale o `Node.js` e assegure-se que a instalação foi bem sucedida no seu sistema, utilizando o seguinte comando em seu terminal:
