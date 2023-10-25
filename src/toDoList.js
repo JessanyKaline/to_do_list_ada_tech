@@ -127,3 +127,8 @@ function updateTask(taskList) {
         console.log("Tarefa não encontrada com o ID fornecido.");
     }
 }
+
+// Enumerate available tasks for user
+function enumerateTask(taskList) {
+    taskList.map(task => console.log(`${indexOf(task + 1)} - ${task.title}`))
+}
