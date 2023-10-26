@@ -12,14 +12,9 @@ Instale o `Node.js` na versão 18 e assegure-se que a instalação foi bem suced
 Clone esse repositório e navegue até a pasta raiz dele e execute o seguinte comando:
 > `npm ci --silent`
 
-Para obter a entrada do usuário, fizemos uso da biblioteca **não** nativa do `Node.js`, a `readline-sync` que para sua instalação, execute o seguinte comando na raiz desse repositório clonado:
-> `npm install readline-sync`
-
-Isso é suficiente para instalar a biblioteca readline-sync no diretório *node_modules* do projeto.
-
 Para executar o projeto, execute:
 
->`node index.js`
+>`node toDoList.js`
 
 ### Sobre o projeto:
 #### Os requisitos do projeto foram originalmente definidos como:
