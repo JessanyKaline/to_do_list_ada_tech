@@ -167,7 +167,7 @@ function updateTask(taskList) {
             const newDescription = readline.question("Nova descrição (deixe em branco para manter a mesma): ");
 
             if (newTitle.trim() !== "") {
-                taskToUpdate.titulo = newTitle;
+                taskToUpdate.title = newTitle;
             }
             if (newDescription.trim() !== "") {
                 taskToUpdate.description = newDescription;
