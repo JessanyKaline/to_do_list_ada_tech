@@ -1,6 +1,5 @@
 import readline from 'readline-sync'
 
-readline.setDefaultOptions({ encoding: 'utf-8' });
 let serial = 0;
 
 let tasks = [];
@@ -17,7 +16,7 @@ menu(tasks);
 function baseTaskList() {
     return [
         { "id": 1, "title": "Otimizar algoritmo", "description": "Verificar algoritmo de busca e deixar ele mais rápido" },
-        { "id": 5, "title": "Preencher formulário", "description": "Formulário de vendas precisa ser preenchido" },
+        { "id": 2, "title": "Preencher formulário", "description": "Formulário de vendas precisa ser preenchido" },
         { "id": 3, "title": "Marcar Daily", "description": "Buscar melhor hora das reuniões diárias" }
     ];
 }
@@ -102,16 +101,14 @@ function idTaskExist(taskList, stringId) {
         return false;
     } catch (error) {
         console.error('Ocorreu um erro inesperado ao verificar a existência da tarefa:', error.message);
-        return false; 
+        return false;
     }
 }
 
 function newId(taskList) {
     try {
         let id;
-        do {
-            id = ++serial;
-        } while (idTaskExist(taskList, id));
+        do { id = ++serial; } while (idTaskExist(taskList, id));
         return id;
     } catch (error) {
         console.error('Ocorreu um erro inesperado ao gerar um novo ID:', error.message);
@@ -138,13 +135,15 @@ function newTask(taskList) {
         return { "id": id, "titulo": title, "description": description };
     } catch (error) {
         console.error('Ocorreu um erro inesperado ao criar uma nova tarefa:', error.message);
-        return null; 
+        return null;
     }
 }
 
 function getTasks(taskList) {
     try {
-        console.log(taskList);
+        for (const task of taskList) {
+            console.log(task);
+        }
     } catch (error) {
         console.error('Ocorreu um erro inesperado ao exibir as tarefas:', error.message);
     }
@@ -178,7 +177,6 @@ function updateTask(taskList) {
         console.error('Ocorreu um erro inesperado ao atualizar a tarefa:', error.message);
     }
 }
-
 
 function enumerateTask(taskList) {
     console.log("Lista de Tarefas: \n")
