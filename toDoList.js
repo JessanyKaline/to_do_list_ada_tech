@@ -163,10 +163,11 @@ function updateTask(taskList) {
             console.log("Tarefa encontrada. Forneça as novas informações:");
 
             const newTitle = readline.question("Novo título (deixe em branco para manter o mesmo): ");
+            console.log(newTitle);
             const newDescription = readline.question("Nova descrição (deixe em branco para manter a mesma): ");
 
             if (newTitle.trim() !== "") {
-                taskToUpdate.titulo = newTitle;
+                taskToUpdate.title = newTitle;
             }
             if (newDescription.trim() !== "") {
                 taskToUpdate.description = newDescription;
