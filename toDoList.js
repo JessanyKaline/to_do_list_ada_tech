@@ -36,7 +36,8 @@ function menuText() {
 }
 
 function menu(taskList) {
-    while (true) {
+    let switchOnOff = true
+    while (switchOnOff) {
         try {
             console.log("\n" + menuText());
             const choice = readline.question('Escolha um numero acima: ');
@@ -58,7 +59,8 @@ function menu(taskList) {
                     break;
                 case '0':
                     console.log('Saindo da aplicação.');
-                    process.exit(0);
+                    switchOnOff = false
+                    break
                 default:
                     console.log('Opção inválida. Tente novamente.');
             }
@@ -141,8 +143,9 @@ function newTask(taskList) {
 
 function getTasks(taskList) {
     try {
-        for (const task of taskList) {
-            console.log(task);
+        console.log("\nLista de Tarefas:")
+        for (let i = 0; i < taskList.length; i++) {
+            console.log(`${(i + 1)} - ${taskList[i].title}:1\n\t${taskList[i].description}`)
         }
     } catch (error) {
         console.error('Ocorreu um erro inesperado ao exibir as tarefas:', error.message);
@@ -179,7 +182,7 @@ function updateTask(taskList) {
 }
 
 function enumerateTask(taskList) {
-    console.log("Lista de Tarefas: \n")
+    console.log("\nLista de Tarefas:")
     for (let i = 0; i < taskList.length; i++) {
         console.log(`${(i + 1)} - ${taskList[i].title}`)
     }
