@@ -145,7 +145,7 @@ function getTasks(taskList) {
     try {
         console.log("\nLista de Tarefas:")
         for (let i = 0; i < taskList.length; i++) {
-            console.log(`${(i + 1)} - ${taskList[i].title}:\n\t${taskList[i].description}`)
+            console.log(`Tarefa ${(taskList[i].id)}: ${taskList[i].title}:\n\t${taskList[i].description}`)
         }
     } catch (error) {
         console.error('Ocorreu um erro inesperado ao exibir as tarefas:', error.message);
@@ -154,6 +154,7 @@ function getTasks(taskList) {
 
 function updateTask(taskList) {
     console.log("Atualizar Tarefa");
+    getTasks(taskList)
     try {
         const taskId = readline.question("Informe o ID da tarefa que deseja atualizar: ");
 
@@ -185,6 +186,6 @@ function updateTask(taskList) {
 function enumerateTask(taskList) {
     console.log("\nLista de Tarefas:")
     for (let i = 0; i < taskList.length; i++) {
-        console.log(`${(i + 1)} - ${taskList[i].title}`)
+        console.log(`Tarefa ${(taskList[i].id)}: ${taskList[i].title}`)
     }
 }
