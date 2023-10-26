@@ -38,45 +38,53 @@ function menuText() {
 
 function menu(taskList) {
     while (true) {
-        console.log("\n" + menuText());
-        const choice = readline.question('Escolha um numero acima: ');
-        switch (choice) {
-            case '1':
-                addTask(taskList);
-                break;
-            case '2':
-                updateTask(taskList);
-                break;
-            case '3':
-                deleteTask(taskList);
-                break;
-            case '4':
-                getTasks(taskList);
-                break;
-            case '5':
-                //getOneTask();
-                break;
-            case '0':
-                console.log('Saindo da aplicação.');
-                process.exit(0);
-            default:
-                console.log('Opção inválida. Tente novamente.');
+        try {
+            console.log("\n" + menuText());
+            const choice = readline.question('Escolha um numero acima: ');
+            switch (choice) {
+                case '1':
+                    addTask(taskList);
+                    break;
+                case '2':
+                    updateTask(taskList);
+                    break;
+                case '3':
+                    deleteTask(taskList);
+                    break;
+                case '4':
+                    getTasks(taskList);
+                    break;
+                case '5':
+                    //getOneTask();
+                    break;
+                case '0':
+                    console.log('Saindo da aplicação.');
+                    process.exit(0);
+                default:
+                    console.log('Opção inválida. Tente novamente.');
+            }
+        } catch (error) {
+            console.error('Ocorreu um erro inesperado:', error.message);
         }
     }
 }
 
 function deleteTask(taskList) {
     console.log("Excluir Tarefa");
-    const taskId = readline.question("Informe o ID da tarefa que deseja excluir: ");
+    try {
+        const taskId = readline.question("Informe o ID da tarefa que deseja excluir: ");
 
-    const taskIndex = taskList.findIndex(task => task.id == taskId);
+        const taskIndex = taskList.findIndex(task => task.id == taskId);
 
-    if (taskIndex !== -1) {
-        const deletedTask = taskList.splice(taskIndex, 1)[0];
-        console.log(`Tarefa com ID ${taskId} excluída com sucesso:`);
-        console.log(deletedTask);
-    } else {
-        console.log("Tarefa não encontrada com o ID fornecido.");
+        if (taskIndex !== -1) {
+            const deletedTask = taskList.splice(taskIndex, 1)[0];
+            console.log(`Tarefa com ID ${taskId} excluída com sucesso:`);
+            console.log(deletedTask);
+        } else {
+            console.log("Tarefa não encontrada com o ID fornecido.");
+        }
+    } catch (error) {
+        console.error('Ocorreu um erro inesperado ao excluir a tarefa:', error.message);
     }
 }
 
@@ -87,61 +95,90 @@ function deleteTask(taskList) {
  * @returns {boolean}
  */
 function idTaskExist(taskList, stringId) {
-    for (const task of taskList) {
-        if (task.hasOwnProperty('id') && task["id"] == stringId) return true;
+    try {
+        for (const task of taskList) {
+            if (task.hasOwnProperty('id') && task["id"] == stringId) return true;
+        }
+        return false;
+    } catch (error) {
+        console.error('Ocorreu um erro inesperado ao verificar a existência da tarefa:', error.message);
+        return false; 
     }
-    return false;
 }
 
 function newId(taskList) {
-    let id;
-    do { id = ++serial; } while (idTaskExist(taskList, id));
-    return id;
+    try {
+        let id;
+        do {
+            id = ++serial;
+        } while (idTaskExist(taskList, id));
+        return id;
+    } catch (error) {
+        console.error('Ocorreu um erro inesperado ao gerar um novo ID:', error.message);
+    }
 }
 
 function addTask(taskList) {
-    const newTaskCreated = newTask(taskList);
-    taskList.push(newTaskCreated);
-    console.log("Tarefa adicionada com sucesso.");
+    try {
+        const newTaskCreated = newTask(taskList);
+        taskList.push(newTaskCreated);
+        console.log("Tarefa adicionada com sucesso.");
+    } catch (error) {
+        console.error('Ocorreu um erro inesperado ao adicionar a tarefa:', error.message);
+    }
 }
 
 function newTask(taskList) {
-    let id = newId(taskList), description, title;
-    console.log("Informe o título da tarefa e dê Enter");
-    title = readline.question(": ");
-    console.log("Agora informe a descrição completa da tarefa");
-    description = readline.question(": ");
-    return { "id": id, "titulo": title, "description": description }
+    try {
+        let id = newId(taskList), description, title;
+        console.log("Informe o título da tarefa e dê Enter");
+        title = readline.question(": ");
+        console.log("Agora informe a descrição completa da tarefa");
+        description = readline.question(": ");
+        return { "id": id, "titulo": title, "description": description };
+    } catch (error) {
+        console.error('Ocorreu um erro inesperado ao criar uma nova tarefa:', error.message);
+        return null; 
+    }
 }
 
 function getTasks(taskList) {
-    console.log(taskList)
+    try {
+        console.log(taskList);
+    } catch (error) {
+        console.error('Ocorreu um erro inesperado ao exibir as tarefas:', error.message);
+    }
 }
 
 function updateTask(taskList) {
     console.log("Atualizar Tarefa");
-    const taskId = readline.question("Informe o ID da tarefa que deseja atualizar: ");
+    try {
+        const taskId = readline.question("Informe o ID da tarefa que deseja atualizar: ");
 
-    const taskToUpdate = taskList.find(task => task.id == taskId);
+        const taskToUpdate = taskList.find(task => task.id == taskId);
 
-    if (taskToUpdate) {
-        console.log("Tarefa encontrada. Forneça as novas informações:");
+        if (taskToUpdate) {
+            console.log("Tarefa encontrada. Forneça as novas informações:");
 
-        const newTitle = readline.question("Novo título (deixe em branco para manter o mesmo): ");
-        const newDescription = readline.question("Nova descrição (deixe em branco para manter a mesma): ");
+            const newTitle = readline.question("Novo título (deixe em branco para manter o mesmo): ");
+            const newDescription = readline.question("Nova descrição (deixe em branco para manter a mesma): ");
 
-        if (newTitle.trim() !== "") {
-            taskToUpdate.titulo = newTitle;
+            if (newTitle.trim() !== "") {
+                taskToUpdate.titulo = newTitle;
+            }
+            if (newDescription.trim() !== "") {
+                taskToUpdate.description = newDescription;
+            }
+
+            console.log("Tarefa atualizada com sucesso.");
+        } else {
+            console.log("Tarefa não encontrada com o ID fornecido.");
         }
-        if (newDescription.trim() !== "") {
-            taskToUpdate.description = newDescription;
-        }
-
-        console.log("Tarefa atualizada com sucesso.");
-    } else {
-        console.log("Tarefa não encontrada com o ID fornecido.");
+    } catch (error) {
+        console.error('Ocorreu um erro inesperado ao atualizar a tarefa:', error.message);
     }
 }
+
 
 function enumerateTask(taskList) {
     console.log("Lista de Tarefas: \n")
