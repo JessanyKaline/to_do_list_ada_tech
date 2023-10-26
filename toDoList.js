@@ -36,7 +36,8 @@ function menuText() {
 }
 
 function menu(taskList) {
-    while (true) {
+    let switchOnOff = true
+    while (switchOnOff) {
         try {
             console.log("\n" + menuText());
             const choice = readline.question('Escolha um numero acima: ');
@@ -58,7 +59,8 @@ function menu(taskList) {
                     break;
                 case '0':
                     console.log('Saindo da aplicação.');
-                    process.exit(0);
+                    switchOnOff = false
+                    break
                 default:
                     console.log('Opção inválida. Tente novamente.');
             }
