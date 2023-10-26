@@ -86,8 +86,8 @@ function deleteTask(taskList) {
 
 /**
  * Função que verifica se um Id existe
- * @param {Array} taskList
- * @param {string} stringId
+ * @param {tarefa[]} taskList Lista de tarefas registradas
+ * @param {string} stringId Id em formatdo de string que identifica a tarefa
  * @returns {boolean}
  */
 function idTaskExist(taskList, stringId) {
