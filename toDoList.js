@@ -16,7 +16,7 @@ menu(tasks);
 function baseTaskList() {
     return [
         { "id": 1, "title": "Otimizar algoritmo", "description": "Verificar algoritmo de busca e deixar ele mais rápido" },
-        { "id": 5, "title": "Preencher formulário", "description": "Formulário de vendas precisa ser preenchido" },
+        { "id": 2, "title": "Preencher formulário", "description": "Formulário de vendas precisa ser preenchido" },
         { "id": 3, "title": "Marcar Daily", "description": "Buscar melhor hora das reuniões diárias" }
     ];
 }
@@ -184,6 +184,6 @@ function updateTask(taskList) {
 function enumerateTask(taskList) {
     console.log("\nLista de Tarefas:")
     for (let i = 0; i < taskList.length; i++) {
-        console.log(`${(i + 1)} - ${taskList[i].title}`)
+        console.log(`${(taskList[i].id)} - ${taskList[i].title}`)
     }
 }
