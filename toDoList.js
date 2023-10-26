@@ -16,7 +16,7 @@ menu(tasks);
 function baseTaskList() {
     return [
         { "id": 1, "title": "Otimizar algoritmo", "description": "Verificar algoritmo de busca e deixar ele mais rápido" },
-        { "id": 2, "title": "Preencher formulário", "description": "Formulário de vendas precisa ser preenchido" },
+        { "id": 5, "title": "Preencher formulário", "description": "Formulário de vendas precisa ser preenchido" },
         { "id": 3, "title": "Marcar Daily", "description": "Buscar melhor hora das reuniões diárias" }
     ];
 }
@@ -134,7 +134,7 @@ function newTask(taskList) {
         title = readline.question(": ");
         console.log("Agora informe a descrição completa da tarefa");
         description = readline.question(": ");
-        return { "id": id, "titulo": title, "description": description };
+        return { "id": id, "title": title, "description": description };
     } catch (error) {
         console.error('Ocorreu um erro inesperado ao criar uma nova tarefa:', error.message);
         return null;
@@ -145,7 +145,7 @@ function getTasks(taskList) {
     try {
         console.log("\nLista de Tarefas:")
         for (let i = 0; i < taskList.length; i++) {
-            console.log(`${(i + 1)} - ${taskList[i].title}:1\n\t${taskList[i].description}`)
+            console.log(`${(i + 1)} - ${taskList[i].title}:\n\t${taskList[i].description}`)
         }
     } catch (error) {
         console.error('Ocorreu um erro inesperado ao exibir as tarefas:', error.message);
