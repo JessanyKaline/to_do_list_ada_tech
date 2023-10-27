@@ -72,8 +72,9 @@ function menu(taskList) {
 
 function deleteTask(taskList) {
     console.log("Excluir Tarefa");
+    enumerateTask(taskList);
     try {
-        const taskId = readline.question("Informe o ID da tarefa que deseja excluir: ");
+        const taskId = readline.question("\nInforme o ID da tarefa que deseja excluir: ");
 
         const taskIndex = taskList.findIndex(task => task.id == taskId);
 
