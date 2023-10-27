@@ -8,8 +8,11 @@ console.log('\nBem-vindo à aplicação ToDo List!\n');
 
 console.log("Deseja pré-carregar uma lista de tarefas?");
 
-if (readline.question("Digite 1 para sim, ou 0 para nao: ").trim() == "1")
+if (readline.question("Digite 1 para sim, ou 0 para nao: ").trim() == "1") {
     tasks = baseTaskList();
+    newId(tasks);
+    --serial;
+}
 
 menu(tasks);
 
@@ -189,23 +192,23 @@ function updateTask(taskList) {
 function enumerateTask(taskList) {
     console.log("\nLista de Tarefas:")
     for (let i = 0; i < taskList.length; i++) {
-      console.log(`Tarefa ${(taskList[i].id)}: ${taskList[i].title}`)
+        console.log(`Tarefa ${(taskList[i].id)}: ${taskList[i].title}`)
     }
 }
 
 function getOneTask(taskList) {
     enumerateTask(taskList);
     try {
-    const taskId = readline.question("\nInforme o ID da tarefa que deseja exibir: ");
-    const taskToDisplay = taskList.find(task => task.id == taskId);
-    if (taskToDisplay) {
-        console.log("ID: " + taskToDisplay.id);
-        console.log("Atividade: " + taskToDisplay.title);
-        console.log("Descrição: " + taskToDisplay.description);
-    } else {
-        console.log("Tarefa não encontrada com o ID fornecido.");
-    }
+        const taskId = readline.question("\nInforme o ID da tarefa que deseja exibir: ");
+        const taskToDisplay = taskList.find(task => task.id == taskId);
+        if (taskToDisplay) {
+            console.log("ID: " + taskToDisplay.id);
+            console.log("Atividade: " + taskToDisplay.title);
+            console.log("Descrição: " + taskToDisplay.description);
+        } else {
+            console.log("Tarefa não encontrada com o ID fornecido.");
+        }
     } catch (error) {
-    console.error('Ocorreu um erro inesperado ao exibir a tarefa:', error.message);
+        console.error('Ocorreu um erro inesperado ao exibir a tarefa:', error.message);
     }
 }
