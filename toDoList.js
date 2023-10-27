@@ -16,7 +16,7 @@ menu(tasks);
 function baseTaskList() {
     return [
         { "id": 1, "title": "Otimizar algoritmo", "description": "Verificar algoritmo de busca e deixar ele mais rápido" },
-        { "id": 5, "title": "Preencher formulário", "description": "Formulário de vendas precisa ser preenchido" },
+        { "id": 2, "title": "Preencher formulário", "description": "Formulário de vendas precisa ser preenchido" },
         { "id": 3, "title": "Marcar Daily", "description": "Buscar melhor hora das reuniões diárias" }
     ];
 }
@@ -55,7 +55,7 @@ function menu(taskList) {
                     getTasks(taskList);
                     break;
                 case '5':
-                    //getOneTask();
+                    getOneTask(taskList);
                     break;
                 case '0':
                     console.log('Saindo da aplicação.');
@@ -187,6 +187,23 @@ function updateTask(taskList) {
 function enumerateTask(taskList) {
     console.log("\nLista de Tarefas:")
     for (let i = 0; i < taskList.length; i++) {
-        console.log(`Tarefa ${(taskList[i].id)}: ${taskList[i].title}`)
+      console.log(`Tarefa ${(taskList[i].id)}: ${taskList[i].title}`)
+    }
+}
+
+function getOneTask(taskList) {
+    enumerateTask(taskList);
+    try {
+    const taskId = readline.question("Informe o ID da tarefa que deseja exibir: ");
+    const taskToDisplay = taskList.find(task => task.id == taskId);
+    if (taskToDisplay) {
+        console.log("ID: " + taskToDisplay.id);
+        console.log("Atividade: " + taskToDisplay.title);
+        console.log("Descrição: " + taskToDisplay.description);
+    } else {
+        console.log("Tarefa não encontrada com o ID fornecido.");
+    }
+    } catch (error) {
+    console.error('Ocorreu um erro inesperado ao atualizar a tarefa:', error.message);
     }
 }
