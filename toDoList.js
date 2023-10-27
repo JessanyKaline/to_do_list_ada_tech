@@ -206,6 +206,6 @@ function getOneTask(taskList) {
         console.log("Tarefa não encontrada com o ID fornecido.");
     }
     } catch (error) {
-    console.error('Ocorreu um erro inesperado ao atualizar a tarefa:', error.message);
+    console.error('Ocorreu um erro inesperado ao exibir a tarefa:', error.message);
     }
 }
