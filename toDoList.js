@@ -157,7 +157,7 @@ function updateTask(taskList) {
     console.log("Atualizar Tarefa");
     getTasks(taskList)
     try {
-        const taskId = readline.question("Informe o ID da tarefa que deseja atualizar: ");
+        const taskId = readline.question("\nInforme o ID da tarefa que deseja atualizar: ");
 
         const taskToUpdate = taskList.find(task => task.id == taskId);
 
@@ -194,7 +194,7 @@ function enumerateTask(taskList) {
 function getOneTask(taskList) {
     enumerateTask(taskList);
     try {
-    const taskId = readline.question("Informe o ID da tarefa que deseja exibir: ");
+    const taskId = readline.question("\nInforme o ID da tarefa que deseja exibir: ");
     const taskToDisplay = taskList.find(task => task.id == taskId);
     if (taskToDisplay) {
         console.log("ID: " + taskToDisplay.id);
