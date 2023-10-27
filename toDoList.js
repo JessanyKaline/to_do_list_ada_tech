@@ -72,8 +72,9 @@ function menu(taskList) {
 
 function deleteTask(taskList) {
     console.log("Excluir Tarefa");
+    enumerateTask(taskList);
     try {
-        const taskId = readline.question("Informe o ID da tarefa que deseja excluir: ");
+        const taskId = readline.question("\nInforme o ID da tarefa que deseja excluir: ");
 
         const taskIndex = taskList.findIndex(task => task.id == taskId);
 
@@ -145,7 +146,7 @@ function getTasks(taskList) {
     try {
         console.log("\nLista de Tarefas:")
         for (let i = 0; i < taskList.length; i++) {
-            console.log(`${(i + 1)} - ${taskList[i].title}:\n\t${taskList[i].description}`)
+            console.log(`Tarefa ${(taskList[i].id)}: ${taskList[i].title}:\n\t${taskList[i].description}`)
         }
     } catch (error) {
         console.error('Ocorreu um erro inesperado ao exibir as tarefas:', error.message);
@@ -154,6 +155,7 @@ function getTasks(taskList) {
 
 function updateTask(taskList) {
     console.log("Atualizar Tarefa");
+    getTasks(taskList)
     try {
         const taskId = readline.question("Informe o ID da tarefa que deseja atualizar: ");
 
@@ -163,10 +165,11 @@ function updateTask(taskList) {
             console.log("Tarefa encontrada. Forneça as novas informações:");
 
             const newTitle = readline.question("Novo título (deixe em branco para manter o mesmo): ");
+            console.log(newTitle);
             const newDescription = readline.question("Nova descrição (deixe em branco para manter a mesma): ");
 
             if (newTitle.trim() !== "") {
-                taskToUpdate.titulo = newTitle;
+                taskToUpdate.title = newTitle;
             }
             if (newDescription.trim() !== "") {
                 taskToUpdate.description = newDescription;
@@ -184,7 +187,7 @@ function updateTask(taskList) {
 function enumerateTask(taskList) {
     console.log("\nLista de Tarefas:")
     for (let i = 0; i < taskList.length; i++) {
-        console.log(`${(taskList[i].id)} - ${taskList[i].title}`)
+      console.log(`Tarefa ${(taskList[i].id)}: ${taskList[i].title}`)
     }
 }
 
