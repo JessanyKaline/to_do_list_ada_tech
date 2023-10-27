@@ -10,6 +10,8 @@
 
 [Djair Alves](https://www.linkedin.com/in/djairdj)
 
+[Fábio Reis](https://www.linkedin.com/in/fabioreispaz/)
+
 ### Requisitos para executar a aplicação
 ___
 Nesse projeto será usado JavaScript, então para executar a aplicação, será necessário um ambiente de execução JavaScript, como exemplo:
