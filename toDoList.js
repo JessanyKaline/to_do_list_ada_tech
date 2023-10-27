@@ -80,8 +80,10 @@ function deleteTask(taskList) {
 
         if (taskIndex !== -1) {
             const deletedTask = taskList.splice(taskIndex, 1)[0];
-            console.log(`Tarefa com ID ${taskId} excluída com sucesso:`);
-            console.log(deletedTask);
+            console.log("\nID: " + deletedTask.id);
+            console.log("Atividade: " + deletedTask.title);
+            console.log("Descrição: " + deletedTask.description);
+            console.log(`\nTarefa com ID ${taskId} excluída com sucesso:`);
         } else {
             console.log("Tarefa não encontrada com o ID fornecido.");
         }
